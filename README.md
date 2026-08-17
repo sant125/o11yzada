@@ -20,7 +20,7 @@ Roteiro de referência (não é pra assistir aula por aula — só pra não deix
 - [x] [01 · Observabilidade: os sinais e por que pilar isolado não é observabilidade](01-observabilidade-sinais-e-correlacao.md)
 - [x] [02 · Traces & Spans a fundo](02-traces-spans-a-fundo.md)
 - [x] [03 · Metrics (tipos, cardinalidade, exemplars)](03-metrics-tipos-cardinalidade-exemplars.md)
-- [ ] 04 · Logs (estruturado, correlação, custo)
+- [x] [04 · Logs (estruturado, correlação, custo)](04-logs-estruturado-correlacao-custo.md)
 - [x] [05 · Context propagation & Baggage](05-context-propagation-baggage.md)
 - [ ] 06 · Sampling (head vs tail)
 - [x] [07 · Semantic conventions](07-semantic-conventions.md)
