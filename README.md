@@ -18,10 +18,10 @@ Roteiro de referência (não é pra assistir aula por aula — só pra não deix
 **Parte I: Fundamentos**
 
 - [x] [01 · Observabilidade: os sinais e por que pilar isolado não é observabilidade](01-observabilidade-sinais-e-correlacao.md)
-- [ ] 02 · Traces & Spans a fundo
+- [x] [02 · Traces & Spans a fundo](02-traces-spans-a-fundo.md)
 - [ ] 03 · Metrics (tipos, cardinalidade, exemplars)
 - [ ] 04 · Logs (estruturado, correlação, custo)
-- [ ] 05 · Context propagation & Baggage
+- [x] [05 · Context propagation & Baggage](05-context-propagation-baggage.md)
 - [ ] 06 · Sampling (head vs tail)
 - [x] [07 · Semantic conventions](07-semantic-conventions.md)
 
