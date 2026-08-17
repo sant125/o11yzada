@@ -23,6 +23,8 @@ Cada um tem uma variante **assíncrona** (Asynchronous Counter/UpDownCounter/Gau
 
 Por que a distinção monotônico/não-monotônico importa de verdade: um consumidor de métrica (Prometheus, por exemplo) trata Counter e UpDownCounter de formas matematicamente diferentes — `rate()` só faz sentido matemático em cima de algo que só sobe; aplicar `rate()` num UpDownCounter que oscila pra baixo dá resultado sem significado.
 
+Essa propriedade não é só curiosidade de tipo — o [srezada Cap 4](../srezada/04-monitoring.md) chama Counter monotônico de **pré-requisito arquitetural do burn rate** (a métrica que dirige alerta de SLO): burn rate é construído em cima de `rate()` de um Counter de erro, então a garantia de monotonicidade aqui embaixo é o que sustenta o cálculo de SLO lá em cima.
+
 ## 3. Temporality: delta vs cumulative — o detalhe que quebra silenciosamente com Prometheus
 
 Pra instrumentos síncronos, existe uma escolha de **temporality** que decide como o estado é mantido entre ciclos de export:

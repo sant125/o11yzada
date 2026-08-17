@@ -19,6 +19,8 @@ O par de conceitos que separa os dois:
 - **Monitoring** = *known-unknowns*. Você sabe que aquilo pode falhar, só não sabe quando. Alerta e dashboard resolvem.
 - **Observability** = *unknown-unknowns*. O problema inédito, que você nem sabia que era possível. Só resolve se as saídas do sistema forem ricas o bastante pra você interrogar depois do fato.
 
+Ver também [srezada Cap 4 (Monitoring)](../srezada/04-monitoring.md) — lá é a mesma distinção, olhada do lado prático de SRE: os 5 usos de monitoring e por que só o alerta é a fatia *known-unknowns* dos 5.
+
 Na prática: **monitoramento** é métrica predefinida, painel predefinido, problema conhecido — saturação de disco/rede/CPU/memória/inodes, `max_connections` estourando. Tudo que a gente já sabe que pode dar ruim, com threshold e alerta prontos. **Observabilidade** agrega esses sinais a outros sintomas: trace pra acompanhar todo o caminho da request ao longo do sistema, log pra correlação — e daí você extrai *onde*, *quando* e *como* ocorreu, não só o sinal cruzando um threshold predefinido. Isso te tira do puramente reativo; e mesmo quando você reage, tem uma gama muito maior de sinais pra destrinchar o problema.
 
 Por que isso pesa mais em arquitetura distribuída: num monolito, o bug mora num processo, você anexa um debugger e pronto. Em microserviço, o bug quase nunca mora *dentro* de um serviço — mora no **caminho entre eles** (a chamada que ficou lenta, o retry que cascateou, o serviço C que só falha quando A e B batem juntos). Não dá pra anexar debugger no caminho entre 12 pods. Você só enxerga esse caminho se o sistema o **emitiu como telemetria**. Daí a necessidade dos sinais.
