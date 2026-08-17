@@ -70,4 +70,28 @@ O ponto em comum entre todas: hoje aceitam **OTLP** como entrada, então dá pra
 - **New Relic / Dynatrace** — outros vendors proprietários grandes, aparecem bastante em vaga.
 - **SigNoz** — alternativa open source "tudo em um" (métrica+log+trace), self-hosted, cresce em empresas que não querem pagar vendor.
 
-*(placeholder — próxima sessão: seções 4+ sobre API vs SDK na prática, Collector — receivers/processors/exporters/pipelines, e onde isso se conecta com o Tema 11.)*
+## 4. API vs SDK na prática
+
+A separação da seção 1 (API/SDK vendor-neutral vs Collector decidindo destino) tem uma segunda camada, dentro do próprio "API/SDK": **API e SDK também são pacotes separados entre si**, e essa separação é o que faz uma biblioteca de terceiros conseguir instrumentar código sem forçar todo mundo que a usa a carregar telemetria de verdade.
+
+Definição oficial:
+
+> "API packages consist of the cross-cutting public interfaces used for instrumentation. Any portion of an OpenTelemetry client which is imported into third-party libraries and application code is considered part of the API."
+
+> "The SDK is the implementation of the API provided by the OpenTelemetry project. Within an application, the SDK is installed and managed by the application owner."
+
+Analogia: a **API** é a tomada na parede — a interface física padronizada que qualquer aparelho (biblioteca) usa pra plugar, sem precisar saber se tem gerador, rede elétrica da cidade, ou nada atrás dela. O **SDK** é a fiação de verdade, instalada e ligada por quem é dono da casa (a aplicação final) — é o que decide se energia (telemetria) realmente vai fluir, e pra onde.
+
+Consequência prática: se um driver de banco de dados, ou um client HTTP wrapper, importa só `opentelemetry-api` pra criar spans, e a aplicação que usa esse driver **nunca registra o SDK**, essas chamadas de span viram **no-op** — não dão erro, não custam quase nada, simplesmente não geram telemetria nenhuma. Só quando a aplicação final, lá no `main()`/entrypoint, importa e configura o SDK (sampler, processor, exporter — Tema 11) é que a árvore inteira de chamadas de API — o código próprio **e** o de qualquer lib de terceiros instrumentada — vira telemetria real.
+
+Regra da especificação, direto pra quem escreve uma lib:
+
+> "Instrumentation authors MUST NOT directly reference any SDK package of any kind, only the API."
+
+Por que essa regra existe: se uma biblioteca importasse o SDK diretamente, ela estaria forçando toda aplicação que a usa a carregar peso de configuração de telemetria (samplers, exporters, todo o SDK) mesmo que aquela aplicação nunca vá coletar nada — e pior, prendendo a lib a uma versão/config específica de SDK que pode conflitar com o que a aplicação já usa. API sozinha resolve isso: dependência leve, opcional, e sem acoplamento.
+
+Pra entrevista: "por que uma lib instrumentada com OTel não trava a aplicação que a usa?" — porque a lib depende só da **API**, que é no-op até alguém plugar o **SDK**; a decisão de coletar telemetria (e como) é sempre da aplicação final, nunca da biblioteca.
+
+Ref: https://opentelemetry.io/docs/specs/otel/overview/ · https://opentelemetry.io/docs/concepts/instrumentation/#api-and-sdk
+
+*(placeholder — próxima sessão: Collector — receivers/processors/exporters/pipelines, e onde isso se conecta com o Tema 11.)*
