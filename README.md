@@ -22,7 +22,7 @@ Roteiro de referência (não é pra assistir aula por aula — só pra não deix
 - [x] [03 · Metrics (tipos, cardinalidade, exemplars)](03-metrics-tipos-cardinalidade-exemplars.md)
 - [x] [04 · Logs (estruturado, correlação, custo)](04-logs-estruturado-correlacao-custo.md)
 - [x] [05 · Context propagation & Baggage](05-context-propagation-baggage.md)
-- [ ] 06 · Sampling (head vs tail)
+- [x] [06 · Sampling (head vs tail)](06-sampling-head-vs-tail.md)
 - [x] [07 · Semantic conventions](07-semantic-conventions.md)
 
 **Parte II: OpenTelemetry**
