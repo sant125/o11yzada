@@ -30,7 +30,7 @@ Roteiro de referência (não é pra assistir aula por aula — só pra não deix
 - [ ] 08 · Arquitetura OTel (API, SDK, Collector)
 - [x] [09 · Instrumentation (auto vs manual)](09-instrumentacao-auto-vs-manual.md)
 - [x] [10 · OTLP (o protocolo)](10-otlp.md)
-- [ ] 11 · Collector a fundo (receivers, processors, exporters, pipelines)
+- [x] [11 · Collector a fundo (receivers, processors, exporters, pipelines)](11-collector-a-fundo.md)
 
 **Parte III: Prática / stack**
 
