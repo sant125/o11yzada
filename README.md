@@ -28,7 +28,7 @@ Roteiro de referência (não é pra assistir aula por aula — só pra não deix
 **Parte II: OpenTelemetry**
 
 - [ ] 08 · Arquitetura OTel (API, SDK, Collector)
-- [ ] 09 · Instrumentation (auto vs manual)
+- [x] [09 · Instrumentation (auto vs manual)](09-instrumentacao-auto-vs-manual.md)
 - [x] [10 · OTLP (o protocolo)](10-otlp.md)
 - [ ] 11 · Collector a fundo (receivers, processors, exporters, pipelines)
 
