@@ -4,6 +4,20 @@
 
 ---
 
+## 0. Missão, visão e valores (oficial) — fechando o "porquê" antes da arquitetura
+
+Antes de entrar na arquitetura, o texto oficial do projeto resume em uma frase o motivo dele existir:
+
+> **Missão:** "enable effective observability by making high-quality, portable telemetry ubiquitous."
+
+A visão se desdobra em 5 apostas de que telemetria deve ser: **fácil** (defaults bons, baixo tempo-pra-valor), **universal** (mesmo protocolo/convenção entre linguagens e sinais), **vendor-neutral** (sem lock-in — exatamente a Cilada 1 da seção 1), **loosely coupled** (usa só o componente que precisa, não o projeto inteiro) e **built-in** (parte da stack, não um apêndice).
+
+Valores de engenharia: compatibilidade, estabilidade, resiliência, performance, auto-observabilidade (o Collector saber expor métricas/logs de si mesmo — Tema 13). Valores de comunidade: agir no interesse do projeto, declarar conflito de interesse, presumir boa intenção, discordar com respeito.
+
+Pra entrevista, a frase que interessa é a missão: **telemetria de alta qualidade e portátil, onipresente** — "onipresente" resume "built-in" e "fácil" ao mesmo tempo.
+
+Ref: https://opentelemetry.io/community/mission/
+
 ## 1. A sacada: instrumentar não devia ser acoplado ao backend
 
 Antes de existir um padrão, instrumentar um sistema te jogava em uma de duas ciladas:

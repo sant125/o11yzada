@@ -4,6 +4,8 @@ Notas de estudo de observabilidade e [OpenTelemetry](https://opentelemetry.io/do
 
 Irmão do [srezada](../srezada) (SRE Workbook destrinchado). Lá é confiabilidade; aqui é enxergar o sistema por dentro a partir de fora.
 
+Roteiro de referência (não é pra assistir aula por aula — só pra não deixar buraco de conteúdo core): [roteiro-curso-otca.md](roteiro-curso-otca.md), baseado no [prep course OTCA da KodeKloud](https://learn.kodekloud.com/learn/courses/prep-course-opentelemetry-certified-associate-certification-otca).
+
 ## Formato de cada tema
 
 - A ideia central primeiro, o nome técnico depois
