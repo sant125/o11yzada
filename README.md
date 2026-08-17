@@ -23,7 +23,7 @@ Roteiro de referência (não é pra assistir aula por aula — só pra não deix
 - [ ] 04 · Logs (estruturado, correlação, custo)
 - [ ] 05 · Context propagation & Baggage
 - [ ] 06 · Sampling (head vs tail)
-- [ ] 07 · Semantic conventions
+- [x] [07 · Semantic conventions](07-semantic-conventions.md)
 
 **Parte II: OpenTelemetry**
 
